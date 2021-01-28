@@ -35,9 +35,8 @@ The upstream `sudo` repository is a mess and I can't even build `master` with `.
 
 In light of the fact that `sudo` builds plugins as `.so` objects and packages commonly ship multiple
 binaries (`sudo`, `cvtsudoers`, `sudo_logsrvd`, `sudo_sendlog`, `sudoedit`, `sudoreplay`, and `visudo` on my OS)
-our `Cargo.toml` will declare multiple `[[bin]]` and `[[sublib]]` outputs. The sources for each of these outputs will be under `src/<bin-name>/main.rs` or `src/<lib-name>/lib.rs`.
-
-I encourage downstream maintainers to follow this pattern; if your business has a custom `sudo` plugin called `libAuthenticateCustomers.so` and you want to upstream it to this repository then implement it in `src/AuthenticateCustomers/lib.rs` and add a corresponding `[[sublib]]` section to `Cargo.toml`.
+our `Cargo.toml` will use the new `[workspace]` block to declare child projects which will each be responsible
+for producing 1 binary or 1 shared library.
 
 # Building
 
