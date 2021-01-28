@@ -1,0 +1,7 @@
+[workspace]
+members = [
+  # Binaries
+  "cvtsudoers", "sudo", "sudo_logsrvd", "sudo_sendlog", "sudoedit", "sudoreplay", "visudo",
+  # Libraries
+  "audit_json", "group_file", "sudo_util", "sample_approval", "sudo_noexec", "sudoers", "system_group"
+]
