@@ -149,14 +149,18 @@ def compare_executions(test_description, cmd_bin, cmd_list, env_dict={}):
   sudo_rs_out = get_cmd_output(sudo_rs_bin)
   sudo_out = get_cmd_output(sudo_bin)
 
+  # Ignore leading and trailing whitespace
+  sudo_rs_out = sudo_rs_out.decode('utf-8').strip()
+  sudo_out = sudo_out.decode('utf-8').strip()
+
   if sudo_rs_out != sudo_out:
     print('Test Failed!')
     print('')
     print('===== sudo_rs_out =====')
-    print(sudo_rs_out.decode('utf-8'))
+    print(sudo_rs_out)
     print('')
     print('===== sudo_out =====')
-    print(sudo_out.decode('utf-8'))
+    print(sudo_out)
     print('')
 
   else:
