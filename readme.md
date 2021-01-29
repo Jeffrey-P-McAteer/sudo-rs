@@ -54,6 +54,17 @@ cargo build --release
 # Outputs go to target/debug/ or target/release/
 ```
 
+# Testing
+
+At the moment there is only one script that tests the original sudo implementation against sudo-rs.
+
+```bash
+python scripts/compare_implementations.py
+```
+
+The `./scripts/` directory will likely grow to hold tests for all of the behavior sudo provides.
+
+
 # Plugins & Extensions
 
 To create a new binary workspace:
